@@ -1,0 +1,21 @@
+name: Run Test
+
+# Run this workflow every time a new commit pushed to your repository
+on: push
+
+jobs:
+  run-smoke-test:
+    name: Run Smoke Test
+    runs-on: alpine-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      
+      - name: Docker Build
+        run: docker build -t automation/mocha:v1 .
+
+      - name: Run Test
+        run: docker run --rm automation/mocha:v1 npm test
+      
