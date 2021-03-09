@@ -6,7 +6,7 @@ on: push
 jobs:
   run-smoke-test:
     name: Run Smoke Test
-    runs-on: alpine
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
